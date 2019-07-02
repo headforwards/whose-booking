@@ -1,6 +1,9 @@
+from config import setup
+setup()
 from flask import Flask, render_template, session, redirect, request, url_for
 from auth_helper import get_token
-from graph_helper import get_user
+from graph_helper import get_rooms
+
 
 app = Flask(__name__)
 app.secret_key='ajdhjkaghsdfhsdaf'
@@ -11,9 +14,9 @@ def bookings(room):
 
 @app.route("/")
 def home():
-    if session['token'] == '':
-        get_token()
-    token = session['token']
+    #if session['token'] == '':
+    get_token()
+    token = get_rooms()
     return render_template('index.html', displaytoken=token)
 
 

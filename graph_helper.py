@@ -1,10 +1,17 @@
-from requests_oauthlib import OAuth2Session
+from flask import session
+import requests
+import os
 
-graph_url = 'https://graph.microsoft.com/v1.0'
+graph_url = 'https://graph.microsoft.com/beta'
+user_id = os.environ['user_id']
 
-def get_user(token):
-    graph_client = OAuth2Session(token=token)
-    # Send GET to /me
-    user = graph_client.get('{0}/me'.format(graph_url))
-    # Return the JSON result
-    return user.json()
+def get_rooms():
+    url = '{0}/users/{1}/{2}'.format(graph_url, user_id, 'findrooms')
+    headers = {"Authorization": "Bearer {0}".format(session['token'])}
+    response = requests.get(url, headers=headers).json()
+    return response
+
+
+
+
+
