@@ -11,10 +11,6 @@
     <p><a href="/Hamilton">Hamilton</a></p>
     <p><a href="/Newman">Newman</a></p>
     <hr/>
-    {% if user.is_authenticated %}
-    <p>Your logged in!</p>
-    {% else %}
-    <p><a href="/sign-in">Sign In</a></p>
-    {% endif %}
+    {{displaytoken}}
 </body>
 </html>
