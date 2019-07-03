@@ -9,9 +9,9 @@ graph_url = 'https://graph.microsoft.com/beta'
 user_id = os.environ['user_id']
 
 def get_rooms():
-    get_token()
+    token = get_token()
     url = '{0}/users/{1}/{2}'.format(graph_url, user_id, 'findrooms')
-    headers = {"Authorization": "Bearer {0}".format(session['token'])}
+    headers = {"Authorization": "Bearer {0}".format(token)}
     response = requests.get(url, headers=headers).json()
     if 'value' in response:
         return response['value']
@@ -21,7 +21,7 @@ def get_rooms():
 
 
 def get_meetings(room):
-    get_token()
+    token = get_token()
     today = datetime.date.today().strftime("%Y-%m-%d")
     data = {
         "schedules": [room],
@@ -37,7 +37,7 @@ def get_meetings(room):
     }
     url = '{0}/users/{1}/{2}'.format(graph_url, user_id, 'calendar/getSchedule')
     headers = {
-        "Authorization": "Bearer {0}".format(session['token']),
+        "Authorization": "Bearer {0}".format(token),
         "Prefer": 'outlook.timezone="Europe/London"'
     }
     schedules = requests.post(url, json=data, headers=headers).json()['value'][0]
