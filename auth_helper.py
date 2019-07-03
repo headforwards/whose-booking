@@ -13,6 +13,8 @@ def get_token():
         'client_secret' : os.environ['app_secret'],
         'grant_type' : 'client_credentials'
     }
-
-    token = requests.post(login_url, data).json()
-    session['token'] = token['access_token']
+    try:
+        token = requests.post(login_url, data).json()
+        session['token'] = token['access_token']
+    except:
+        pass

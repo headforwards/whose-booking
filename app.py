@@ -2,22 +2,23 @@ from config import setup
 setup()
 from flask import Flask, render_template, session, redirect, request, url_for
 from auth_helper import get_token
-from graph_helper import get_rooms
-
+from graph_helper import get_rooms, get_meetings
 
 app = Flask(__name__)
 app.secret_key='ajdhjkaghsdfhsdaf'
+get_token()
 
-@app.route("/<room>")
-def bookings(room):
-    return render_template('room.html', name=room)
+
+@app.route("/<room>/<name>")
+def bookings(room, name):
+    meetings = get_meetings(room)
+    return render_template('room.html', meetings=meetings, name=name)
 
 @app.route("/")
 def home():
-    #if session['token'] == '':
     get_token()
-    token = get_rooms()
-    return render_template('index.html', displaytoken=token)
+    rooms = get_rooms()
+    return render_template('index.html', rooms=rooms)
 
 
 if __name__ == '__main__':

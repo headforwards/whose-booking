@@ -3,8 +3,43 @@
   <title>This works...</title>
 </head>
 <body>
-<p>
-    Hello {{name}}
-</p>
+    <h1>{{name}}</h1>
+        {% if meetings['scheduleItems']|length == 0 %}
+        <h2>
+            No Meetings Found for Today
+        </h2>
+    {% else %}
+<table>
+    <thead>
+    <tr>
+        <th>
+            Start Time
+        </th>
+        <th>
+            End Time
+        </th>
+        <th>
+            Booked By
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in meetings['scheduleItems'] %}
+    <tr>
+        <td>
+            {{item['start']['dateTime']}}
+        </td>
+        <td>
+            {{item['end']['dateTime']}}
+        </td>
+        <td>
+            {{item['subject']}}
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+    {% endif %}
 </body>
 </html>

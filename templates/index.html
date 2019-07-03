@@ -6,11 +6,8 @@
 </head>
 <body>
     <h1>Welcome to whose booking!</h1>
-    <p><a href="/Thompson">Thompson</a> </p>
-    <p><a href="/Liskov">Liskov</a></p>
-    <p><a href="/Hamilton">Hamilton</a></p>
-    <p><a href="/Newman">Newman</a></p>
-    <hr/>
-    {{displaytoken}}
+    {% for room in rooms %}
+    <p><a href="/{{room['address']}}/{{room['name']}}">{{room['name']}}</a></p>
+    {% endfor %}
 </body>
 </html>
