@@ -15,7 +15,6 @@ def get_token():
     }
     try:
         token = requests.post(login_url, data).json()
-        print(token)
         return token['access_token']
 
     except Exception as e:
