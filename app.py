@@ -10,13 +10,11 @@ app.secret_key='ajdhjkaghsdfhsdaf'
 
 @app.route("/<room>/<name>")
 def bookings(room, name):
-    get_token()
     meetings = get_meetings(room)
     return render_template('room.html', meetings=meetings, name=name)
 
 @app.route("/")
 def home():
-    get_token()
     rooms = get_rooms()
     return render_template('index.html', rooms=rooms)
 

@@ -3,12 +3,13 @@ import requests
 import os
 import datetime
 import dateutil.parser
-from dateutil import tz
+from auth_helper import get_token
 
 graph_url = 'https://graph.microsoft.com/beta'
 user_id = os.environ['user_id']
 
 def get_rooms():
+    get_token()
     url = '{0}/users/{1}/{2}'.format(graph_url, user_id, 'findrooms')
     headers = {"Authorization": "Bearer {0}".format(session['token'])}
     response = requests.get(url, headers=headers).json()
@@ -20,6 +21,7 @@ def get_rooms():
 
 
 def get_meetings(room):
+    get_token()
     today = datetime.date.today().strftime("%Y-%m-%d")
     data = {
         "schedules": [room],
