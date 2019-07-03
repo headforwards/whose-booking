@@ -6,11 +6,11 @@ from graph_helper import get_rooms, get_meetings
 
 app = Flask(__name__)
 app.secret_key='ajdhjkaghsdfhsdaf'
-get_token()
 
 
 @app.route("/<room>/<name>")
 def bookings(room, name):
+    get_token()
     meetings = get_meetings(room)
     return render_template('room.html', meetings=meetings, name=name)
 
