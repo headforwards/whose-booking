@@ -9,6 +9,24 @@
             No Meetings Found for Today
         </h2>
     {% else %}
+<div style="position:relative">
+{% for hour in range(10) %}
+    <div class="hour" style="top:{{hour * 120}}px">
+        <h2>
+        {{hour + 8}}
+        </h2>
+    </div>
+    {% endfor %}
+<div class="time" style="top:{{meetings['currenttime']}}px">Now</div>
+<div>
+    {% for item in meetings['scheduleItems'] %}
+        <div class="meeting" style="height:{{item['length']}}px; top:{{item['offset']}}px">
+            {{item['subject']}} ({{item['start']['dateTime']}} - {{item['end']['dateTime']}})
+        </div>
+    {% endfor %}
+</div>
+</div>
+<!--
 <table class="table table-striped table-sm">
     <thead>
     <tr>
@@ -40,5 +58,6 @@
     {% endfor %}
     </tbody>
 </table>
+-->
     {% endif %}
 {% endblock %}

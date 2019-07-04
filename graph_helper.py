@@ -41,7 +41,14 @@ def get_meetings(room):
         "Prefer": 'outlook.timezone="Europe/London"'
     }
     schedules = requests.post(url, json=data, headers=headers).json()['value'][0]
+    today = datetime.date.today()
+    basedate = datetime.datetime(today.year, today.month, today.day, 8)
+    schedules['currenttime'] = abs((datetime.datetime.now() - basedate).total_seconds() / 60) * 2
     for event in schedules['scheduleItems']:
-        event['start']['dateTime'] = dateutil.parser.parse(event['start']['dateTime']).strftime('%H:%M')
-        event['end']['dateTime'] = dateutil.parser.parse(event['end']['dateTime']).strftime('%H:%M')
+        start = dateutil.parser.parse(event['start']['dateTime'])
+        end = dateutil.parser.parse(event['end']['dateTime'])
+        event['start']['dateTime'] = start.strftime('%H:%M')
+        event['end']['dateTime'] = end.strftime('%H:%M')
+        event['length'] = abs((end - start).total_seconds() / 60 ) * 2
+        event['offset'] = abs((start - basedate).total_seconds() / 60) * 2
     return schedules

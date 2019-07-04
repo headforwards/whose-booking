@@ -8,23 +8,50 @@
     a.btn {
     font-size:0.85em
     }
+    .meeting{
+    position:absolute;
+    left:75px;
+    margin:1px;
+    padding:5px;
+    right:0;
+    border-top:2px solid
+    }
+    .meeting:nth-child(even){
+    background-color:#cdedd8;
+    border-color:#a1deb6
+
+    }
+    .meeting:nth-child(odd){
+    background-color:#c0e3f2;
+    border-color:#8bcbe6
+    }
+    .time{
+    border-top:1px solid #eba6a3;
+    z-index:999;
+    position:absolute;
+    background-color:#f4cfce;
+    left:75px;
+    right:0;
+    opacity:0.75;
+    text-align:right;
+    padding-right:5px
+    }
+    .hour{
+    position:absolute;
+    height: 120px;
+    width: 70px;
+    padding: 5px
+    }
+    .hour:nth-child(odd){
+    background-color:rgba(0, 0, 0, 0.2);
+    }
 </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a class="navbar-brand" href="#">Whose Booking!</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                  </ul>
-                </div>
+                <a class="navbar-brand" href="/">Whose Booking!</a>
               </nav>
-    <div class="container">
+    <div class="container-fluid">
         <h1 class="pt-4 pb-4">
             {% block title %}
             {% endblock %}
