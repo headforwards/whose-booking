@@ -6,44 +6,59 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt" crossorigin="anonymous">
 <style>
     a.btn {
-    font-size:0.85em
+        font-size:0.85em
     }
     .meeting{
-    position:absolute;
-    left:75px;
-    margin:1px;
-    padding:5px;
-    right:0;
-    border-top:2px solid
+        position:absolute;
+        left:75px;
+        margin:1px;
+        padding:5px;
+        right:0;
+        border-top:2px solid;
+        z-index: 998
     }
     .meeting:nth-child(even){
-    background-color:#cdedd8;
-    border-color:#a1deb6
+        background-color:#cdedd8;
+        border-color:#a1deb6
 
     }
     .meeting:nth-child(odd){
-    background-color:#c0e3f2;
-    border-color:#8bcbe6
+        background-color:#c0e3f2;
+        border-color:#8bcbe6
     }
     .time{
-    border-top:1px solid #eba6a3;
-    z-index:999;
-    position:absolute;
-    background-color:#f4cfce;
-    left:75px;
-    right:0;
-    opacity:0.75;
-    text-align:right;
-    padding-right:5px
+        border-top:1px solid #eba6a3;
+        z-index:999;
+        position:absolute;
+        background-color:#f4cfce;
+        left:75px;
+        right:0;
+        opacity:0.75;
+        text-align:right;
+        padding-right:5px
+    }
+    .time.worktime{
+        background-color:#fbe8cd;
+        border-top:1px solid #454d55;
+    }
+    .time.marker{
+    border-top:1px solid rgba(0, 0, 0, 0.15);
+    background-color:transparent;
+    left: 0px;
+    z-index: 0
     }
     .hour{
-    position:absolute;
-    height: 120px;
-    width: 70px;
-    padding: 5px
+        position:absolute;
+        height: 120px;
+        width: 70px;
+        padding: 5px
     }
     .hour:nth-child(odd){
-    background-color:rgba(0, 0, 0, 0.2);
+        background-color:rgba(0, 0, 0, 0.2);
+    }
+    .meeting span{
+        color:#000;
+        font-size:larger
     }
 </style>
 </head>
