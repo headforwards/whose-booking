@@ -6,7 +6,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt" crossorigin="anonymous">
 <style>
     a.btn {
-        font-size:0.85em
+        font-size:0.85em;
+        min-height:185px
     }
     .meeting{
         position:absolute;
@@ -27,15 +28,17 @@
         border-color:#8bcbe6
     }
     .time{
-        border-top:1px solid #eba6a3;
         z-index:999;
         position:absolute;
-        background-color:#f4cfce;
         left:75px;
         right:0;
         opacity:0.75;
         text-align:right;
         padding-right:5px
+    }
+    .time.now{
+            background-color:transparent;
+            border-top:2px dashed #eba6a3;
     }
     .time.worktime{
         background-color:#fbe8cd;

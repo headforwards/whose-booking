@@ -30,7 +30,7 @@ def get_meetings(room):
             "timeZone": "UTC"
         },
         "endTime": {
-            "dateTime": "{0}T17:00:00".format(today),
+            "dateTime": "{0}T18:00:00".format(today),
             "timeZone": "UTC"
         },
         "availabilityViewInterval": "60"
