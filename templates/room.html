@@ -26,38 +26,5 @@
     {% endfor %}
 </div>
 </div>
-<!--
-<table class="table table-striped table-sm">
-    <thead>
-    <tr>
-        <th>
-            Start Time
-        </th>
-        <th>
-            End Time
-        </th>
-        <th>
-            Booked By
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for item in meetings['scheduleItems'] %}
-    <tr>
-        <td>
-            {{item['start']['dateTime']}}
-        </td>
-        <td>
-            {{item['end']['dateTime']}}
-        </td>
-        <td>
-            {{item['subject']}}
-        </td>
-    </tr>
-
-    {% endfor %}
-    </tbody>
-</table>
--->
     {% endif %}
 {% endblock %}
