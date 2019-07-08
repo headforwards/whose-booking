@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}
     {{name}}
-    <div>
-        <p>Here are today's booking for {{name}}, to see more bookings click <a href={{link}}>here</a>.</p>
-    </div>
 {% endblock %}
 {% block content %}
+    <div>
+        <p>Here are today's bookings, to see other days click <a href={{link}}>here</a>.</p>
+    </div>
 
         {% if meetings['scheduleItems']|length == 0 %}
         <h2>
