@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}
     {{name}}
+    <div>
+        <p>Here are today's booking for {{name}}, to see more bookings click <a href={{link}}>here</a>.</p>
+    </div>
 {% endblock %}
 {% block content %}
 
@@ -32,9 +35,4 @@
     <div class="time worktime" style="top:1140px">End of Day</div>
 </div>
     {% endif %}
-
-
-<div>
-    <p>To see more bookings click <a href={{link}}>here</a>.</p>
-</div>
 {% endblock %}
