@@ -105,3 +105,4 @@ venv.bak/
 
 # secrets
 oauth_settings.yml
+.DS_Store
